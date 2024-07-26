@@ -1,0 +1,16 @@
+.description {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.h1 {
+  text-align: center;
+  font-size: 42px;
+}
+
+.p {
+  text-align: center;
+  font-size: 22px;
+}
