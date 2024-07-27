@@ -1,18 +1,19 @@
 import css from '../Options/Options.module.css'
 
-const handleClick = () => {
+const resetFeedback = () => {
 
 }
 
-const Options = () => {
+const Options = ({updateFeedback}) => {
   return (
     <div className={css.options}>
-      <button className={css.btn} type='button' onClick={()=>{handleClick()}}>Good</button>
-      <button className={css.btn} type='button' onClick={()=>{handleClick()}}>Neutral</button>
-      <button className={css.btn} type='button' onClick={()=>{handleClick()}}>Bad</button>
-      <button className={css.btn} type='button' onClick={()=>{handleClick()}}>Reset</button>
+      <button className={css.btn} type='button' onClick={() => updateFeedback("good")}>Good</button>
+      <button className={css.btn} type='button' onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button className={css.btn} type='button' onClick={() => updateFeedback("bad")}>Bad</button>
+      <button className={css.resetBtn} type='button' onClick={resetFeedback}>Reset</button>
     </div>
   )
 }
+
 
 export default Options
