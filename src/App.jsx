@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import Options from "./Options/Options";
 import Notification from "./Notification/Notification";
 
 function App() {
-  const [likes, setLikes] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [likes, setLikes] = useState(() => {
+    const items = window.localStorage.getItem("state");
+    if (items !== null) {
+      return JSON.parse(items)
+    }
+    return ({ good: 0, neutral: 0, bad: 0,})
   });
+
+  useEffect(() => {
+    window.localStorage.setItem("state", JSON.stringify(likes));
+  }, [likes]);
 
   const updateFeedback = (feedbackType) => {
     setLikes({ ...likes, [feedbackType]: likes[feedbackType] + 1 });
