@@ -36,14 +36,14 @@ function App() {
         resetFeedback={resetFeedback}
         sum={sum}
       />
-      <Feedback
+      {sum > 0? <Feedback
         good={likes.good}
         neutral={likes.neutral}
         bad={likes.bad}
         total={sum}
         positive={positive}
-      />
-      <Notification sum={sum} />
+      /> :
+      <Notification />}
     </>
   );
 }
